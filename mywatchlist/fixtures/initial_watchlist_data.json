@@ -1,0 +1,116 @@
+
+[
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":1,
+        "fields":{
+            "watched":"Done",
+            "title":"Olympus Has Fallen",
+            "rating": 3,
+            "release_date": "2013-03-21",
+            "review": "An entertaining movie"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":2,
+        "fields":{
+            "watched":"Note Yet",
+            "title":"London Has Fallen",
+            "rating": 4,
+            "release_date": "2016-03-09",
+            "review": "A well written story and awesome action movie"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":3,
+        "fields":{
+            "watched":"Done",
+            "title":"The Fate of The Furious",
+            "rating": 3,
+            "release_date": "2017-04-12",
+            "review": "The movie hits all the notes a fan would like"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":4,
+        "fields":{
+            "watched":"Note Yet",
+            "title":"Ready Player One",
+            "rating": 4,
+            "release_date": "2018-03-28",
+            "review": "A Fantastic and incredible movie"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":5,
+        "fields":{
+            "watched":"Note Yet",
+            "title":"Hunter Killer",
+            "rating": 4,
+            "release_date": "2018-10-24",
+            "review": "An almost-great, suspenseful, exciting, and fun movie "
+        }
+    },
+    
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":6,
+        "fields":{
+            "watched":"Done",
+            "title":"Hamilton",
+            "rating": 5,
+            "release_date": "2020-07-03",
+            "review": "Very entertaining musical movie "
+        }
+    },
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":7,
+        "fields":{
+            "watched":"Done",
+            "title":"In The Heights",
+            "rating": 5,
+            "release_date": "2021-06-09",
+            "review": "A fun and enthusiasistic Hollywood musical"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":8,
+        "fields":{
+            "watched":"Done",
+            "title":"Restless",
+            "rating": 5,
+            "release_date": "2022-02-25",
+            "review": " Highly entertaining and fun to watch"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":9,
+        "fields":{
+            "watched":"Note Yet",
+            "title":"Furious 7",
+            "rating": 4,
+            "release_date": "2022-04-03",
+            "review": " A really good and awesome action movie"
+        }
+    },
+
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":10,
+        "fields":{
+            "watched":"Note Yet",
+            "title":"F9: The Fast Saga",
+            "rating": 4,
+            "release_date": "2022-06-16",
+            "review": "Perfect movie to watch if you miss about fast & furious"
+        }
+    }
+
+]
