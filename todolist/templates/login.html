@@ -7,13 +7,13 @@
 {% block content %}
 <body style="background-color: #bcdfd6">
 
-<div class = "login">
+<div style="text-align: center" class = "login">
 
     <h1>Login</h1>
 
     <form method="POST" action="">
         {% csrf_token %}
-        <table>
+        <table table align="center">
             <tr>
                 <td>Username: </td>
                 <td><input type="text" name="username" placeholder="Username" class="form-control"></td>

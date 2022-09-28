@@ -1,6 +1,10 @@
  ## TUGAS 4 PBP
  
- ### Link deploy
+ ### 🔗 Link deploy
+https://tugas-2-syifa.herokuapp.com/todolist/login/
+https://tugas-2-syifa.herokuapp.com/todolist/register/
+https://tugas-2-syifa.herokuapp.com/todolist/create_task/
+https://tugas-2-syifa.herokuapp.com/todolist/logout/
 
 
  #### **Apa kegunaan {% csrf_token %} pada elemen <form>? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen <form>?**
