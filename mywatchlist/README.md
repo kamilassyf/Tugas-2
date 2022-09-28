@@ -2,6 +2,7 @@
  
  
  ### Jelaskan perbedaan antara JSON, XML, dan HTML!
+ 
  **JSON (JavaSript Object Notation)** merupakan penulisan data yang memilki struktur data yang sederhana dan mudah dipahami
  untuk dpahami. Json menggunakan REST APi dan hanya mendukung encoding UTF-8 dan UTF-16. Datanya berbentuk
  map data structure dimana keys dan valuenya berpasangan. 
