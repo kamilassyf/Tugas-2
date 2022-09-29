@@ -32,11 +32,11 @@ pertama, user melakukan submisi data yang akan dibawa oleh request dan isimpan k
 Kemudian objectsnya akan dilakukan looping dengan for loop agar dapat menampilkan data yang ingin ditampilkan. Untuk menampilkan data yang diinginkan dapat mengakses nama atribut yang diinginkan. Misalkan ingin mengakses title, maka dapat menulis
 
 
-....
+. . . . 
         
         <td>{{task.title}}</td>
 
-....
+. . . .
 
 
 
@@ -59,3 +59,7 @@ Kemudian objectsnya akan dilakukan looping dengan for loop agar dapat menampilka
 8. Melakukan 'add', 'commit', dan 'push' ke repositoy github. karena repository sudah terhubung maka app dapat langsung diakses melalui Heroku
 
 9. 2 akun dan 3 dummy data di situs web Heroku
+
+![This is an image](https://github.com/kamilassyf/Tugas-2/issues/1#issue-1390142378)
+
+![This is an image](https://github.com/kamilassyf/Tugas-2/issues/2#issue-1390144444)
