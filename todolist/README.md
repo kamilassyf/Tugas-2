@@ -2,8 +2,11 @@
  
  ### 🔗 Link deploy
 https://tugas-2-syifa.herokuapp.com/todolist/login/
+
 https://tugas-2-syifa.herokuapp.com/todolist/register/
+
 https://tugas-2-syifa.herokuapp.com/todolist/create_task/
+
 https://tugas-2-syifa.herokuapp.com/todolist/logout/
 
 
@@ -24,12 +27,15 @@ Ya, kita bisa membuat elemen <form> secara manual dengan memanfaatkan method POS
 
 #### **Jelaskan proses alur data dari submisi yang dilakukan oleh pengguna melalui HTML form, penyimpanan data pada database, hingga munculnya data yang telah disimpan pada template HTML.**
 
-pertama, user melakukan submisi data yang akan dibawa oleh request dan isimpan ke dalam suatu variabel. data tersebut dapat diakses dengan menggunakan method requesst.POST.get(nama pada table). Kemudian data tersebut dapat diambil dari database untuk ditampilkan menggunakan nama models yang telah dibuat pada file todolist/models.py. Data dapat diakses menggunakan "Models".objects.filter(user=request.user). penggunaan filter ditujukan agar dapat sesuai dengan user sehingga yang masuk kedalam context agar dapat terrender ke dalam html. 
+pertama, user melakukan submisi data yang akan dibawa oleh request dan isimpan ke dalam suatu variabel. data tersebut dapat diakses dengan menggunakan method requesst.POST.get(nama pada table). Kemudian data tersebut dapat diambil dari database untuk ditampilkan menggunakan nama models yang telah dibuat pada file todolist/models.py. Data dapat diakses menggunakan "Models".objects.filter(user=request.user) penggunaan filter ditujukan agar dapat sesuai dengan user sehingga yang masuk kedalam context agar dapat terrender ke dalam html. 
+
 Kemudian objectsnya akan dilakukan looping dengan for loop agar dapat menampilkan data yang ingin ditampilkan. Untuk menampilkan data yang diinginkan dapat mengakses nama atribut yang diinginkan. Misalkan ingin mengakses title, maka dapat menulis
 
 
 ....
+        
         <td>{{task.title}}</td>
+
 ....
 
 
