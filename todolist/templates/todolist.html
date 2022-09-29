@@ -2,7 +2,7 @@
 
 {% block content %}
 <body style="background-color: #bcdfd6">
-<h1 style="text-align: center; color: #16926d ">Hey,{{user.username}}</h1>
+<h1 style="text-align: center; color: #16926d ">Hey, {{user.username}}</h1>
 <h1 style="text-align: center; color: #16926d ">This is your to do list! </h1>
 <style>
     table, th{
@@ -24,27 +24,27 @@
 <table rules="all", border="1", table align="center">
   <thread>
     <tr style="background-color: rgb(189, 255, 248);">
-      <th colspan="2">Tanggal</th>
-      <th colspan="2">Judul</th>
+      <th colspan="3">Tanggal</th>
+      <th colspan="3">Judul</th>
       <th colspan="3">Deskripsi</th>
-      <th colspan="2">Status</th>
-      <th colspan="2" >Pilihan</th>
+      <th colspan="3">Status</th>
+      <th colspan="3" >Pilihan</th>
     </tr>
   </thread>
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
     {% for task in todolist %}
     <tr style="background-color: rgb(227, 244, 222);" >
-        <td colspan="2">{{task.date}}</td>
-        <td colspan="2">{{task.title}}</td>
+        <td colspan="3">{{task.date}}</td>
+        <td colspan="3">{{task.title}}</td>
         <td colspan="3">{{task.description}}</td>
-        <td colspan="2">
+        <td colspan="3">
           {% if task.is_finished %}
               Done
               {% else %}
               Not Yet
               {% endif %}
         </td>
-        <td colspan="2">
+        <td colspan="3">
           <button><a href="delete_task/{{task.pk}}">Delete</a></button>
           <button><a href="status/{{task.pk}}">Status</a></button>
         </td>
