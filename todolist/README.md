@@ -60,6 +60,6 @@ Kemudian objectsnya akan dilakukan looping dengan for loop agar dapat menampilka
 
 9. 2 akun dan 3 dummy data di situs web Heroku
 
-![This is an image](https://github.com/kamilassyf/Tugas-2/issues/1#issue-1390142378)
+![This is an image](https://github.com/kamilassyf/Tugas-2/blob/64f5973201d315d611671b9f60975477a62c8c94/todolist/todo.png)
 
-![This is an image](https://github.com/kamilassyf/Tugas-2/issues/2#issue-1390144444)
+![This is an image](https://github.com/kamilassyf/Tugas-2/blob/main/todolist/todotodo.png)
