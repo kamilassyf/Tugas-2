@@ -1,61 +1,193 @@
 {% extends 'base.html' %}
 
+{% block meta %}
+<title>Login</title>
+{% endblock meta %}
+
 {% block content %}
-<body style="background-color: #bcdfd6">
-<h1 style="text-align: center; color: #16926d ">Hey, {{user.username}}</h1>
-<h1 style="text-align: center; color: #16926d ">This is your to do list! </h1>
-<style>
-    table, th{
-      text-align: center;
-      border: 1px solid black;
-      border-collapse: collapse;
+  <style>
+
+    .font-custom, h1{
+      text-align: center; 
+      color: #616bc2;
+      font-family: corsiva, cursive;
+      font-weight: bold;
     }
-    td{
-      text-align: center;
-      border: 1px solid black;
-      border-collapse: collapse;
+    .container{
+        display: flex;
+        justify-content: center;
+    }
+    .font-custom1{
+      text-align: center; 
+      color: #616bc2;
+      font-family: "Optima";
+    }
+    .bg-custom{
+      background-color: rgb(186, 222, 251);
+    }
+    .bg-cstm{
+      background-color: rgb(123, 191, 247);
+    }
+    .bg-custom1{
+      background-color: rgb(250, 242, 242);
+    }
+
+    .btn-bg1{
+      height: 40px;
+      width: 110px;
+      background-color: rgb(242, 248, 250);
+      border-radius: 5%;
+    }
+    th, td{
+        text-align: center;
+        border: 1px solid black;
+        border-collapse: collapse;
+        column-span: 3;
     }
     .button{
       text-align: center;
       margin-top: 10px;
     }
-  </style>
+    .table{
+      width: 80%;
+      border: 1px solid black;
+      border-collapse: separate;
+      table-layout: fixed;
+      column-span:"3";
+      border-radius: 5px;
+      margin: 50px auto;
+      font-family: serif;
+    }
+    .btn-bg{
+      height: 30px;
+      width: 80px;
+      background-color: rgb(123, 191, 247);
+      border-radius: 5%;
+      
+    }
+    .card:hover{
+      transform: scale(1.15);
+      box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+    }
+    .card{
+      flex-wrap: wrap;
+      display: flex;
+      flex-direction: row;
+      width:250px ;
+      grid-template-rows: 90px 90px 40px;
+      grid-template-areas:"text" "status";
 
-<table rules="all", border="1", table align="center">
-  <thread>
-    <tr style="background-color: rgb(189, 255, 248);">
-      <th colspan="3">Date</th>
-      <th colspan="3">Title</th>
-      <th colspan="3">Description</th>
-      <th colspan="3">Status</th>
-      <th colspan="3" >Status Update</th>
-    </tr>
-  </thread>
-    {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
-    {% for task in todolist %}
-    <tr style="background-color: rgb(227, 244, 222);" >
-        <td colspan="3">{{task.date}}</td>
-        <td colspan="3">{{task.title}}</td>
-        <td colspan="3">{{task.description}}</td>
-        <td colspan="3">
-          {% if task.is_finished %}
-              Done
-              {% else %}
-              Not Yet
-              {% endif %}
-        </td>
-        <td colspan="3">
-          <button><a href="delete_task/{{task.pk}}">Delete</a></button>
-          <button><a href="status/{{task.pk}}">Status</a></button>
-        </td>
-    </tr>
-{% endfor %}
-</table>
-<div class="button">
-  <button ><a href="{% url 'todolist:logout' %}">Logout</a></button>
-  <button><a href="{% url 'todolist:create_task' %}">add new task</a></button>  
-</div>
+      border-radius: 18px;
+      background-color: aliceblue;
+      box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+      font-family: roboto;
+      text-align: center;
+      place-content: center;
 
-</body>
+      transition: 0,5s ease;
+      cursor:pointer;
+      margin:30px;
+    }
+    .card-text{
+      grid-area: text;
+    }
+    .card-text .date{
+      color: rgb(233, 151, 185);
+      font-size: 13px;
+    }
+    .card-text p{
+      color: grey;
+      font-size: 15px;
+      font-weight: 300;
+    }
+    .card-text h1{
+      margin-top: 0px;
+      font-size: 28px;
+    }
+    .card-status{
+      grid-area: status;
+      display: flex;
+    }
+    .card-status .done{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: cadetblue;
+      margin: 95px;
+
+    }      
+    .card-status .not-yet{
+      grid-area: status;
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      background-color:rgb(233, 151, 185);
+      margin: 95px;
+
+    }
+
+
+  
+    </style>
+      <body class="bg-custom">
+      <div class="p-4"></div>
+    <h1 class="font-custom">Hey, {{user.username}}</h1>
+    <h2 class="font-custom1">This is your to do list! </h1>
+  
+    <table class="table; table align= center">
+    <thread>
+      <tr  class="bg-cstm">
+        <th>Date</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Status Update</th>
+      </tr>
+    </thread>
+      {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
+      {% for task in todolist %}
+      <tr class="bg-custom1">
+          <td>{{task.date}}</td>
+          <td >{{task.title}}</td>
+          <td >{{task.description}}</td>
+          <td >
+            {% if task.is_finished %}
+                Done
+                {% else %}
+                Not Yet
+                {% endif %}
+          </td>
+          <td >
+            <button class="btn-bg"><a href="delete_task/{{task.pk}}">Delete</a></button>
+            <button class="btn-bg"><a href="status/{{task.pk}}">Status</a></button>
+          </td>
+      </tr>
+  {% endfor %}
+  </table>
+  <div class="button p-5">
+    <button class="btn-bg1"><a href="{% url 'todolist:logout' %}">Logout</a></button>
+    <button class="btn-bg1"><a href="{% url 'todolist:create_task' %}">add new task</a></button>  
+  </div>
+
+  <div>
+    {% for card in todolist %}
+    <div class = " container card">
+      <div class = "card-text">
+        <span class="date p-1">{{card.date}}</span>
+        <h1 class="h1 p-1">{{card.title}}</h1>
+        <p class="p">{{card.description}}</p>
+      </div>
+      <div class="card-status">
+        {% if card.is_finished %}
+        <div class="done"></div>
+        {% else %}
+        <div class="not-yet"></div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  
+  </div>
+  </body>
 
 {% endblock content %}

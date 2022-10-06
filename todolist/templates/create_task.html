@@ -1,28 +1,81 @@
 {% extends 'base.html' %}
 
 {% block meta %}
-<title >Add Todo List</title>
+<title>Login</title>
 {% endblock meta %}
 
 {% block content %}
-<body style="background-color: #bcdfd6">
 
-<div style="text-align: center"class = "add">
-    <h1 style="text-align: center; color: #16926d ">Add New Task</h1>
+<style>
+    .bg-custom{
+        background-color: rgb(186, 222, 251);
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+    }
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <div>
-            <label for="title">Title:</label>
-            <input id="title" type="text" name="title" placeholder="Input your task" required>
-        </div>
-        <div>
-            <label for="description">Description: </label>
-            <input id="description" type="text" name="description" placeholder="Describe your task" required>
-        </div>
-        <br><br>
-        <input class="button" type="submit" value="Add">
-    </form>
+    .btn-bg{
+        height: 35px;
+        width: 70px;
+        background-color:rgb(186, 222, 251);
+        border-radius: 10%;
+    }
+    table,
+    th,
+    td {
+        padding: 7px;
+        text-align: center;
+        border-collapse: collapse;
+    }
+    .square {
+        height: 400px;
+        width: 400px;
+        background-color: rgb(250, 242, 242);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 10%;
+
+    }
+    .center {
+        padding: 25px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .font-task{
+        text-align: center;
+        color: #616bc2;
+    }
+    .title-bar{
+        text-align: left;
+    }
+</style>
+
+<body class=" bg-custom">
+<div class="p-5 mb-5"></div>
+
+<div class="login square center">
+<h1  class="p-2 mb-5 font-task">Add New Task</h1>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <table>
+        <tr> 
+            <td class="title-bar">Title  :</td>
+            <td><input id="title" type="text" name="title" placeholder="Input your task" class="form-control" required> </td>
+        </tr>
+        <tr>
+            <td class="title-bar">Description: </td>
+            <td><input id="description" type="text" name="description" placeholder="Describe your task" class="form-control" required> </td>
+
+        </tr>
+        <tr>
+            <td>
+                <div class="p-2"></div>
+                <input class="btn-bg" type="submit" value="Add">
+            </td>
+        </tr>
+    </table>
+</form>
 
 </div>
 </body>

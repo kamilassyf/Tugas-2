@@ -63,3 +63,101 @@ Kemudian objectsnya akan dilakukan looping dengan for loop agar dapat menampilka
 ![This is an image](https://github.com/kamilassyf/Tugas-2/blob/64f5973201d315d611671b9f60975477a62c8c94/todolist/todo.png)
 
 ![This is an image](https://github.com/kamilassyf/Tugas-2/blob/main/todolist/todotodo.png)
+
+## Tugas 5
+
+#### **Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?**
+
+**Inline CSS:** 
+Inline CSS merupakan kode yang ditulis secara langsung pada atribut elemen HTML. Penulisannya pada atribut style dari elemen HTML yang diinginkan. 
+
+kelebihan:
+        
+1. Efisien apabila ingin langsung melihat perubahan pada kode dengan cepat
+2. Proses laod website akan berjalan lebih cepat
+3. Penulisan styling akan lebih spesifik pada satu elemen 
+
+kekurangan:
+1. struktur file akan terlihat berantakan karena banyaknya penerapan style yang ada
+2. tidak efektif jika dterapkan pada banyak tag HTML karena akan terjadi styling berulang - ulang
+
+
+**Internal CSS:**
+Internal CSS merupakan kode yang ditulis dalam tag `<style>` pada file yang sama. Untuk menggunakan styling CSS dengan internal CSS, kita bisa dengan menggunakan ID, class, atau hanya elemen
+
+kelebihan:
+1. Tidak perlu membuat file baru karena styling dilakukan pada file yang sama. 
+2. Perubahan hanya terjadi pada satu page saja sehingga memungkinkan untuk membuat page yang berbeda satu sama lainnya
+
+
+kekurangan:
+1. Tidak efisian jika ingin membuat styling CSS yang sama pada lebih dari satu file
+
+
+**External CSS:**
+External CSS merupakan kode yang ditulis pada file yang berbeda. file tersebut berekstensi `.css`. Untuk menghubungkan kedua file perlu menambahkan `<link>` kemudian mereferensikan ke path file berada pada tag `<head>`.
+
+
+
+kelebihan:
+1. Struktur file HTML akan terlihat lebih rapi dan mudah dipahami
+2. Efisiensi jika ingin diterapkan untuk lebih dari satu halaman website
+3. Durasi loading website akan lebih cepat
+
+
+kekurangan:
+1. Membutuhkan waktu lebih untuk mengakses styling CSS karena terdapat pada file yang berbeda
+
+
+
+
+#### **Jelaskan tag HTML5 yang kamu ketahui.**
+`<body>` : mendefinisikan badan dari document
+
+`<button>` : membuat button yang bisa diketik
+
+`<div>` : membagi menjadi beberapa divisi atau section pada document
+
+`<form>` : mendefinisikan form HTML untuk input user
+
+`<head>` : mendefinisikan bagian head dari document yang biasanya berisi title/judul
+
+`<html>` : mendefinisikan root dari file document HTML
+
+`<img>` : mempresentasikan foto/gambar
+
+`<input>` :  mendefinisikan control untuk input
+
+`<label>` :mendefinisikan label untuk `<input>` control
+
+`<title>` : mendifinikan title/judul dari file document
+
+
+
+
+
+#### **Jelaskan tipe-tipe CSS selector yang kamu ketahui.**
+
+Terdapat 5 tipe CSS selector, yaitu:
+
+1. CSS element selectors: CSS element selectors menyeleksi element HTML berdasarkan nama elementnya
+
+2. CSS id selectors: CSS id selector akan memilih element yang spesifik dengan menggunakan id atribut dari element HTML
+
+3. CSS class selectors: CSS class selectors akan memilih element HTML dengan atribut class yang spesifik
+
+4. CSS Universal selectors: CSS universal selectors akan memilih elemen HTML pada page
+
+5. CSS Grouping selectors: CSS grouping selectors akan memilih seluruh elemen HTML dengan definisi style yang sama. 
+
+
+
+#### **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.**
+
+1. membuat styling dengan menggunakan CSS. Saya menggunakan styling dengan Internal CSS. Saya membuat tag `<style>`  yang isinya terdapat beberapa styling kemudian saya memanggil styling tersebut pada elemen  yang diinginkan dengan  `class= "styling"`
+
+2. Membuat cards pada halaman utama todo list untuk menampilkan task. Kemudian saya menambahkan for-loop untuk menampilkan task dengan format yang sama
+
+3. Membuat keempat halaman menjadi responsive dengan cara mengatur viewport yang terdapat pada `base.html` yang telah diextends oleh file HTML lainnya. Kemudian menambahkan `{% extends 'base.html'%}` pada setiap file html
+
+4. Menambahkan efek hover pada cards dengan cara membuat class `card:hover` pada todolist.html 
