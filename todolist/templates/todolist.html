@@ -1,7 +1,8 @@
+<html>
 {% extends 'base.html' %}
 
 {% block meta %}
-<title>Login</title>
+<title>todolist</title>
 {% endblock meta %}
 
 {% block content %}
@@ -159,7 +160,7 @@
           </td>
           <td >
             <button class="btn-bg"><a href="delete_task/{{task.pk}}">Delete</a></button>
-            <button class="btn-bg"><a href="status/{{task.pk}}">Status</a></button>
+            <button class="btn-bg"><a href="status/{{task.pk}}">Done</a></button>
           </td>
       </tr>
   {% endfor %}
@@ -191,3 +192,4 @@
   </body>
 
 {% endblock content %}
+</html>
