@@ -1,195 +1,184 @@
-<html>
 {% extends 'base.html' %}
-
 {% block meta %}
-<title>todolist</title>
+<title>My Todolist</title>
 {% endblock meta %}
-
 {% block content %}
-  <style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    .font-custom, h1{
-      text-align: center; 
-      color: #616bc2;
-      font-family: corsiva, cursive;
-      font-weight: bold;
-    }
-    .container{
-        display: flex;
-        justify-content: center;
-    }
-    .font-custom1{
-      text-align: center; 
-      color: #616bc2;
-      font-family: "Optima";
-    }
-    .bg-custom{
-      background-color: rgb(186, 222, 251);
-    }
-    .bg-cstm{
-      background-color: rgb(123, 191, 247);
-    }
-    .bg-custom1{
-      background-color: rgb(250, 242, 242);
-    }
+<style>
 
-    .btn-bg1{
-      height: 40px;
-      width: 110px;
-      background-color: rgb(242, 248, 250);
-      border-radius: 5%;
-    }
-    th, td{
-        text-align: center;
-        border: 1px solid black;
-        border-collapse: collapse;
-        column-span: 3;
-    }
-    .button{
-      text-align: center;
-      margin-top: 10px;
-    }
-    .table{
-      width: 80%;
-      border: 1px solid black;
-      border-collapse: separate;
-      table-layout: fixed;
-      column-span:"3";
-      border-radius: 5px;
-      margin: 50px auto;
-      font-family: serif;
-    }
-    .btn-bg{
-      height: 30px;
-      width: 80px;
-      background-color: rgb(123, 191, 247);
-      border-radius: 5%;
+  .font-custom{
+    text-align: center; 
+    color: rgb(39, 73, 101);
+    font-weight: bold;
+  }
+  .bg-custom{
+    background-color: rgb(224, 241, 255);
+  }
+  .bg-cstm{
+    background-color: rgb(39, 73, 101);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+  }
+  .card-margin{
+    margin: 20px;
+  }
+
+  .card:hover{
+    transform: scale(1.15);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+  }
+  .card{
+    border: 1px ;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    font-family: roboto;
+    border-radius: 30px;
+    transition: 0,5s ease;
+    cursor:pointer;
+    overflow-y: auto; 
+    width: 20rem;
+
+  }
+  .card-text{
+    grid-area: text;
+  }
+  .card-text .date{
+    font-size: 10px;
+  }
+  .card-text-p{
+    color: grey;
+    font-size: 20px;
+    font-weight: 300;
+  }
+  .card-text-h1{
+    margin-top: 0px;
+    font-size: 40px;
+    text-align: left;
+    color: rgb(39, 73, 101);
+
+  }
+  </style>
       
-    }
-    .card:hover{
-      transform: scale(1.15);
-      box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-    }
-    .card{
-      flex-wrap: wrap;
-      display: flex;
-      flex-direction: row;
-      width:250px ;
-      grid-template-rows: 90px 90px 40px;
-      grid-template-areas:"text" "status";
-      border-radius: 18px;
-      background-color: aliceblue;
-      box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
-      font-family: roboto;
-      text-align: center;
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-      transition: 0,5s ease;
-      cursor:pointer;
-      margin:30px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .card-text{
-      grid-area: text;
-    }
-    .card-text .date{
-      color: rgb(233, 151, 185);
-      font-size: 13px;
-    }
-    .card-text p{
-      color: grey;
-      font-size: 15px;
-      font-weight: 300;
-    }
-    .card-text h1{
-      margin-top: 0px;
-      font-size: 28px;
-    }
-    .card-status{
-      grid-area: status;
-      display: flex;
-    }
-    .card-status .done{
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background-color: cadetblue;
-      margin: 95px;
-
-    }      
-    .card-status .not-yet{
-      grid-area: status;
-      width: 50px;
-      height: 50px;
-      border-radius: 100%;
-      background-color:rgb(233, 151, 185);
-      margin: 95px;
-
-    }
-
-
-  
-    </style>
-      <body class="bg-custom">
-      <div class="p-4"></div>
-    <h1 class="font-custom">Hey, {{user.username}}</h1>
-    <h2 class="font-custom1">This is your to do list! </h1>
-  
-    <table class="table; table align= center">
-    <thread>
-      <tr  class="bg-cstm">
-        <th>Date</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Status</th>
-        <th>Status Update</th>
-      </tr>
-    </thread>
-      {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
-      {% for task in todolist %}
-      <tr class="bg-custom1">
-          <td>{{task.date}}</td>
-          <td >{{task.title}}</td>
-          <td >{{task.description}}</td>
-          <td >
-            {% if task.is_finished %}
-                Done
-                {% else %}
-                Not Yet
-                {% endif %}
-          </td>
-          <td >
-            <button class="btn-bg"><a href="delete_task/{{task.pk}}">Delete</a></button>
-            <button class="btn-bg"><a href="status/{{task.pk}}">Done</a></button>
-          </td>
-      </tr>
-  {% endfor %}
-  </table>
-  <div class="button p-5">
-    <button class="btn-bg1"><a href="{% url 'todolist:logout' %}">Logout</a></button>
-    <button class="btn-bg1"><a href="{% url 'todolist:create_task' %}">add new task</a></button>  
-  </div>
-
-  <div>
-    {% for card in todolist %}
-    <div class = " container card">
-      <div class = "card-text">
-        <span class="date p-1">{{card.date}}</span>
-        <h1 class="h1 p-1">{{card.title}}</h1>
-        <p class="p">{{card.description}}</p>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-cstm">
+        <a class="navbar-brand p-3" href="#">Todolist! 🖊️🖊️ </a>  
+      </nav>
+  </header>
+  <body class="bg-custom">
+    <div class= "p-3"> </div>
+    <h1 class="font-custom p-3">👽 Hello, {{user.username}} 👽</h1>
+      <div class="col-md-12 text-center" style="margin-bottom: 15px;">
+        <button  class="btn btn-primary" style="width:150px; background-color: rgb(46, 117, 184);"><a data-bs-toggle="modal" data-bs-target="#modaladd" href="#" style="color:white;">Create Task</a></button>
+        <button  type="button bg-light" class="btn" style="width:150px; background-color: rgb(236, 13, 13);"><a href="{% url 'todolist:logout' %}" style="color:white;">Logout</a></button>        
       </div>
-      <div class="card-status">
-        {% if card.is_finished %}
-        <div class="done"></div>
-        {% else %}
-        <div class="not-yet"></div>
-        {% endif %}
-      </div>
-    </div>
-    {% endfor %}
-  
-  </div>
+
+      <form action="" method="POST" id="tambahTask">  
+        {% csrf_token %}  
+        <table>  
+            <div class="modal fade" id="modaladd" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="ModalLabel">Create New Todolist 🌞</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input class="form-control" type="text" placeholder="Title" id="title" name="title"  aria-label="Title" >
+                        <br>
+                        <input class="form-control" type="text" id="description" name="description" placeholder="Description" aria-label="Description">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" id="createBtn">Create</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </table>
+    </form>
+    <div class="row row-cols-md-3 mx-auto justify-content-center"id="cont"></div>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    function get_card() {
+        let todolist = "";
+        $.ajax({
+            url: "{% url 'todolist:show_json' %}",
+            type: "GET",
+            dataType: "json",
+            success: function(data){
+                if(data == 0) {
+                    $('#cont').html("")
+                }
+                else {
+                    for (i of data){
 
+                      console.log(data)
+                      let status = i.fields.is_finished ? "✅ Finished ✅" : "❌ Not Finished ❌";
+                      todolist += `
+                          <div class="card" style="margin: 22px; width: 20rem; height:auto;">
+                            <div class="card-header mb-3">
+                              ${status}
+                            </div> 
+                            <p class="mb-2 text-muted" style="font-size: 10px; ">${i.fields.date}</p>
+                            <h1 class="card-text-h1 mb-2">${i.fields.title}</h1>
+                            <h5 class="card-text-p"> 📝 ${i.fields.description}</h5>
+                            <a href="status/${i.pk}" class="btn btn-success" style="margin-bottom:10px; display: block;">Change Status</a>
+                            <a class="btn btn-outline-danger form-control lg mt-2 mb-4" onclick="deleteTask(${i.pk})">Delete</a>                          
+                          </div>
+                        </div>`;
+                      $('#cont').html(todolist)
+                    }
+                }
+            },
+            error: function(data) {
+                console.log('Error')
+            }
+        })
+    }
+
+    function deleteTask(pk){
+        $.ajax({
+            url: `/todolist/delete/${pk}`,
+            type: "DELETE",
+            success: function(data) {
+                console.log(data)
+                $(`#${pk}`).remove()
+                get_card()
+            }
+        })
+    }
+
+    $(document).on("submit", "#tambahTask", function(e) {
+        e.preventDefault();
+        $.ajax ({
+            url: "{% url 'todolist:add_ajax' %}",
+            type: "POST",
+            dataType:"json",
+            data: {
+                title:$("#title").val(),
+                description:$("#description").val(),
+                csrfmiddlewaretoken: "{{ csrf_token }}"
+            },
+            success: function(data) {
+                get_card();
+                const inputs = document.querySelectorAll('#title, #description');
+                inputs.forEach(input => {
+                    input.value = '';
+                });
+            }
+        })
+    })
+
+    $(document).ready(function () {
+        get_card();
+    })
+  </script>
 {% endblock content %}
-</html>

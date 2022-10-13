@@ -10,6 +10,9 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.core import serializers
+from django.http.response import JsonResponse, HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 import datetime
 
 
@@ -24,6 +27,11 @@ def show_todolist(request):
         'todolist': data_todolist
     }
     return render(request, "todolist.html", context)  
+
+@login_required(login_url='/todolist/login/')
+def show_json(request):
+    task = Task.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', task), content_type='application/json')
 
 @login_required(login_url='/todolist/login/') 
 def create_task(request):
@@ -95,3 +103,20 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('todolist:login'))
     response.delete_cookie('last_login')
     return response
+
+def add_ajax(request):
+    title = request.POST.get('title')
+    description = request.POST.get('description')
+    add_todo = Task(
+        user = request.user,
+        title = title,
+        description = description,
+    )
+    add_todo.save()
+    return JsonResponse({"task": "todolist baru"})
+
+@csrf_exempt
+def delete_ajax(request,id):
+    task = Task.objects.filter(pk=id)   
+    task.delete()
+    return JsonResponse({"task": "todolist dihapus"})
